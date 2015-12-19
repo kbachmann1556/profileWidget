@@ -1,106 +1,29 @@
-<html>
+<!DOCTYPE html>
+<html lang = "en">
 <head>
-	<title>stuff</title>
+	<meta charset = 'utf-8'>
+	<title>Profile Widget</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src = './Chart.min.js'></script>
-	<style type="text/css">
-	*{
-		margin: 0px;
-		padding: 0px;
-	}
-	.inner-donut{
-		margin-top: -90px;
-		margin-bottom: 40px;
-		margin-left: 30px;
-	}
-	#profile-widget{
-		width: 100%;
-		/*text-align: center;*/
-		box-shadow: 0px 0px 10px -1px;
-		background-color: #FFD;
-		font-family: Arial;
-	}
-	.chart{
-		margin: 20px;
-		display: inline-block;
-		margin-left: 35%;
-		width: 100px;
-	}
-		.chart h5{
-			text-align: center;
-		}
-	.details{
-		display: inline-block;
-		width: 370px;
-	}
-	</style>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		var ctx = document.getElementById("myChart").getContext("2d");
-		var profile = [
-			{
-				taskID: 1,
-				taskTitle: "What To Do Next",
-				taskDesc: "Review and edit your <a href=’#’>Resources & Addons</a> so you and customers can book specific rooms and request things like chairs, tables, catering, and more.",
-				taskWeight: 2,
-				taskDone: false
-			},
-			{
-				taskID: 2,
-				taskTitle: "Add Food & Drink Menus",
-				taskDesc: "Create your <a href=’#’>Food & Drink</a> menus so that customers can pre-order let you know in advance what they would like to consume.",
-				taskWeight: 1,
-				taskDone: true
-			}
-		];
-		getProfileStatus(profile);
-		function getProfileStatus(profile){
-		  	var totalWeight = 0;
-		  	var completedWeight = 0;
-		  	var tasks = [];
-		  	for (var i = 0; i < profile.length; i++){
-		  		totalWeight += profile[i].taskWeight;
-		  		if(profile[i].taskDone == true){
-		  			completedWeight += profile[i].taskWeight;
-		  		}else{
-		  			tasks.push(profile[i]);
-		  		}
-		  	}
-		  	$('.title').html(tasks[0].taskTitle);
-		  	$('.description').html(tasks[0].taskDesc);
-		  	var percent = 100*completedWeight/totalWeight;
-		  	$('.inner-donut').html(Math.round(percent)+'%');
-		  	var data = [
-			  	{
-			  		value: Math.round(percent),
-			  		color: "blue",
-			  		label: "Completed"
-			  	},
-			  	{
-			  		value: 100-Math.round(percent),
-			  		color: 'gray',
-			  		label: "Unfinished"
-			  	}
-		  	]
-		  	var chart = new Chart(ctx).Doughnut(data, {
-		  		animation: false,
-		  		percentageInnerCutout: 75
-		  	});
-		}
-	});
-	</script>
+	<script type="text/javascript" src = './javascript.js'></script>
 </head>
 <body>
+	<div id = 'collapsed-view'>
+		<br>
+		<span class = 'alert'>Your account is only <span class = 'percentage'></span> complete.</span> The more you set up, the better experience you and your customers will have. <a class = 'open' href="">Learn More Now</a>
+	</div>
 	<div id = 'profile-widget'>
+		<img class = 'exit' src="./Button-Delete-icon.png">
 		<div class = 'chart'>
-			<canvas id = 'myChart' width = '100'></canvas>
+			<canvas id = 'myChart' width = '100' height = '130'></canvas>
 			<h2 class = 'inner-donut'>25%</h2>
 			<h5>ACCOUNT SETUP</h5>
 		</div>
 		<div class = 'details'>
 			<h3 class = 'title'></h3>
 			<p class = 'description'></p>
-			<a href="">Next Tip >></a>
+			<a class = 'nextTip' href="">Next Tip >></a>
 		</div>
 	</div>
 </body>
