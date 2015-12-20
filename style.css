@@ -5,28 +5,31 @@
 	.inner-donut{
 		margin-top: -83px;
 		margin-bottom: 40px;
-		margin-left: 29px;
+		margin-left: 10px;
+	}
+	.container{
+		width: 100%
 	}
 	#profile-widget{
 		position: relative;
-		width: 100%;
-		/*text-align: center;*/
+		/*width: 100%;*/
+		text-align: center;
 		box-shadow: 0px 0px 10px -1px;
 		background-color: #FFD;
 		font-family: Arial;
-		/*vertical-align: top;*/
+		vertical-align: top;
 	}
 	#collapsed-view{
 		background-color: #FFD;
 		box-shadow: 0px 0px 10px -1px;
-		width: 100%;
+		/*width: 100%;*/
 		text-align: center;
 		font-family: Arial;
-		height: 55px;
+		/*height: 55px;*/
 	}
-		#collapsed-view p {
+		/*#collapsed-view p {
 			margin-top: 5px;
-		}
+		}*/
 		.alert{
 			color: #000066;
 			font-weight: bold;
@@ -35,27 +38,20 @@
 		color: #000066;
 	}
 	.chart{
-		/*margin: px;*/
 		display: inline-block;
-		margin-left: 35%;
 		width: 100px;
-		margin-bottom: 20px;
 	}
 		.chart h5{
 			text-align: center;
+			font-weight: bold;
 		}
 	.details{
 		display: inline-block;
-		position: absolute;
 		margin-left: 20px;
-		margin-top: 30px;
 		width: 370px;
+		text-align: left;
 	}
-		.description{
-			margin-top: 10px;
-			margin-bottom: 10px;
-		}
-	.exit{
+	.exitImg{
 		position: absolute;
 		right: 0px;
 		height: 15px;
